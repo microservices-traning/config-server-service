@@ -1,0 +1,21 @@
+server:
+  port: 8888
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+spring:
+  application:
+    name: configserver
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/microservices-traning/config-server.git
+          default-label: master
+          search-paths: user-service,product-service
+  security:
+    user:
+      name: root
+      password: 123456
